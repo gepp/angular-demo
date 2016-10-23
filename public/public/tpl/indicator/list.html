@@ -1,0 +1,58 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">指标列表</h1>
+</div>
+<div class="wrapper-md" ng-controller="indicatorListCtrl" >
+    <div class="panel panel-default">
+        <div class="row wrapper">
+            <div class="col-sm-5">
+            </div>
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-3">
+                <div class="input-group">
+                    <input type="text" class="input-sm form-control" placeholder="Search" ng-model="filter.name" ng-keyup="keySearch($event)">
+                    <span class="input-group-btn">
+            <button class="btn btn-sm btn-default" type="button" ng-click="research()">查询</button>
+          </span>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-striped b-t b-light">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>指标名称</th>
+                        <th>指标范围</th>
+                        <th>指标描述</th>
+                        <th>更新日期</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="indicator in indicators">
+                        <td>{{page.start + $index }}</td>
+                        <td>{{indicator.name}}</td>
+                        <td>{{indicator.range}}</td>
+                        <td>{{indicator.desc|limitTo: 25}}</td>
+                        <td>{{indicator.update_at | date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>
+                            <a href ng-click="edit(indicator._id)" title="修改"><i class="fa fa-edit text-success"></i></a>
+                            <a href ng-click="delete(indicator._id)" title="删除"><i class="fa fa-times text-danger"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-sm-6">
+                    <small class="text-muted inline m-t-sm m-b-sm">showing {{page.start}}-{{page.end}} of {{page.total}} items</small>
+                </div>
+                <div class="col-sm-6 text-right text-center-xs">
+                     <pagination boundary-links="true" total-items="page.total" items-per-page="page.duration" ng-change="pageChanged()" ng-model="filter.current" class="pagination" previous-text="上页" next-text="下页" first-text="首页" last-text="尾页" max-size="5"></pagination>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+ <p>
+        Sort by:        
+        <select ng-model="$ctrl.orderBy">
+          <option value="username" default>name</option>
+          <option value="age">age</option>
+        </select>
+      </p>
+<input type="text" ng-model="$ctrl.searchName">
+<ul ng-repeat="user in $ctrl.users|filter:$ctrl.searchName|orderBy:$ctrl.orderBy">
+	<li>{{user.username}}   {{user.age}}
+		<a href="#!/phones/{{user.id}}" class="thumb">
+            <img ng-src="{{user.image}}" alt="{{user.username}}" />
+    </a>
+	</li>
+</ul>

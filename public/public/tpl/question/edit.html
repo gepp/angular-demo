@@ -1,0 +1,78 @@
+<div class="bg-light lter b-b wrapper-md">
+    <h1 class="m-n font-thin h3">发布问题</h1>
+</div>
+<div class="wrapper-md">
+    <div ng-controller="questionEditCtrl">
+        <div class="row">
+            <div class="col-sm-12">
+                <form name="form" class="form-validation" ng-submit="processForm();">
+                    <div class="panel panel-default form-horizontal">
+                        <div class="panel-heading font-bold">题干</div>
+                        <div class="panel-body">
+                            <input type="hidden" ng-model="question._id">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">文本描述</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="6" ng-model="question.stem.content" placeholder="文本描述" required style="resize: none;"></textarea>
+                                </div>
+                            </div>
+                            <div class="line line-dashed b-b line-lg pull-in"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">图片</label>
+                                <div class="col-sm-10">
+                                    <ul ui-sortable="sortableOptions" class="list-group list-group-lg list-group-sp clearfix" ng-model="question.stem.photos">
+                                        <li class="list-group-item col-sm-2 thumbnail" ng-repeat="photo in question.stem.photos">
+                                            <img ng-src="{{photo}}">
+                                            <div class="tools">
+                                                <a href=""><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="line line-dashed b-b line-lg pull-in"></div>
+                            <div class="form-group">
+                                <label>标签描述</label>
+                                <textarea class="form-control" rows="6" ng-model="question.desc" placeholder="请输入描述"></textarea>
+                            </div>
+                            <div class="line line-dashed b-b line-lg pull-in"></div>
+                            <div class="form-group">
+                                <div>
+                                    <label>关联指标</label>
+                                    <span class="pull-right">
+                                        <a href="" ng-click="openSelect()"><i class="fa fa-plus fa-fw m-r-sm"></i>关联新指标</a>
+                                    </span>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <ul class="list-group gutter list-group-md list-group-sp">
+                                    <li class="list-group-item col-xs-6 col-sm-4" ng-class='{"bg-primary":($index % 3 == 0),"bg-info": ($index % 3 == 1),"bg-success": ($index % 3 == 2)}' ng-repeat="indicator in question.indicators">
+                                        <span class="pull-right">
+                                            <a href="">{{($index+97)|toChar}}</a>    
+                                            <a href="" ng-click="delIndicator(indicator._id,$index)"><i class="fa fa-times fa-fw"></i></a>                  
+                                        </span>
+                                        <div class="clear">
+                                            {{ indicator.name }}
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="btn btn-default col-sm-12" ng-show="!question.indicators || question.indicators.length == 0" style="padding:60px 0;">
+                                    <a href="" ng-click="openSelect()"><i class="fa fa-plus fa-fw m-r-sm"></i>关联新指标</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="line line-dashed b-b line-lg pull-in"></div>
+                            <div class="form-group">
+                                <label>计算规则</label>
+                                <textarea class="form-control" rows="6" ng-model="question.expression" placeholder="请输入表达式"></textarea>
+                            </div>
+                        </div>
+                        <footer class="panel-footer text-right bg-light lter">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </footer>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

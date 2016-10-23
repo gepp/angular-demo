@@ -1,0 +1,94 @@
+<!-- list -->
+<ul class="nav">
+    <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+        <span>导航栏</span>
+    </li>
+    <li ui-sref-active="active">
+        <a ui-sref="app.dashboard">
+            <i class="glyphicon glyphicon-dashboard icon text-primary-dker"></i>
+            <span class="font-bold">控制台</span>
+        </a>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+            <i class="glyphicon glyphicon-th-large icon text-success"></i>
+            <span class="font-bold">指标管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>指标管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.indicators.list">
+                    <span>指标列表</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.indicators.add">
+                    <span>添加新指标</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+        <i class="fa fa-tag fa-angle-right text"></i>
+        <i class="fa fa-tag fa-angle-down text-active"></i>
+      </span>
+            <i class="glyphicon glyphicon-tag icon text-info"></i>
+            <span class="font-bold">标签管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>标签管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.tags.list">
+                    <span>标签列表</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.tags.add">
+                    <span>添加新标签</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href class="auto">
+            <span class="pull-right text-muted">
+        <i class="fa fa-tag fa-angle-right text"></i>
+        <i class="fa fa-tag fa-angle-down text-active"></i>
+      </span>
+            <i class="glyphicon glyphicon-tag icon text-info"></i>
+            <span class="font-bold">试题管理</span>
+        </a>
+        <ul class="nav nav-sub dk">
+            <li class="nav-sub-header">
+                <a href>
+                    <span>试题管理</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.questions.list">
+                    <span>试题列表</span>
+                </a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="app.questions.add">
+                    <span>添加试题</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- / list -->

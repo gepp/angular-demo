@@ -1,0 +1,41 @@
+<div class="modal-header">
+    <div class="col-sm-12">
+        <div class="col-sm-6">
+            <h4>选择指标</h4>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-group" style="margin-top: 10px;">
+                <input type="text" class="input-sm form-control" placeholder="Search" ng-model="filter.name" ng-keyup="keySearch($event)">
+                <span class="input-group-btn">
+                <button class="btn btn-sm btn-default" type="button" ng-click="research()">查询</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="modal-body">
+    <div class="col-sm-12 no-padder" style="margin-top: -5px;margin-bottom: 10px;">
+        <div class="col-sm-6 no-padder">
+            <span>全选<input type="checkbox" ng-click="toggleSelectAll($event)" ng-checked="isSelectedAll()"></span>
+        </div>
+        <div class="col-sm-6 text-right no-padder">
+            <a href="" class="btn btn-xs btn-default" ng-disabled="page.current == 1"  ng-click="filter.current = page.current - 1">&lt;</a>
+            <a href="" class="btn btn-xs btn-default" ng-disabled="page.current == page.pages" ng-click="filter.current = page.current + 1">&gt;</a>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <ul class="list-group gutter list-group-sm list-group-sp">
+        <li class="list-group-item col-sm-4" ng-class='{"bg-primary":($index % 3 == 0),"bg-info": ($index % 3 == 1),"bg-success": ($index % 3 == 2)}' ng-repeat="indicator in indicators">
+            <span class="pull-right"><input type="checkbox" ng-click="toggleSelect($event,indicator)" ng-checked="selected_ids.indexOf(indicator._id) >= 0"></span>
+            <div class="clear">
+                {{ indicator.name }}
+            </div>
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

@@ -1,0 +1,5 @@
+
+<input type="text" ng-model="$ctrl.searchName">
+<ul ng-repeat="user in $ctrl.users|filter:$ctrl.searchName">
+	<li>{{user.username}}   {{user.age}}</li>
+</ul>
