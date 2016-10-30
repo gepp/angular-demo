@@ -1,0 +1,72 @@
+<!doctype html>
+<html  >
+    <head>
+        <script src="../js/angular.js"></script>
+        <script src="../js/angular-route.js"></script>
+        <script src="../js/angular-sanitize.js"></script>
+        <script src="app.config.js"></script>
+        <script src="../js/adapt-strap.min.js"></script>
+        <script src="../js/adapt-strap.tpl.min.js"></script>
+        <link rel="stylesheet" href="../js/bootstrap.css"/>
+        <link rel="stylesheet" href="../js/adapt-strap.min.css"/>
+        <style type="text/css">
+        .name-cell {
+    width: 100px;
+    text-align: left;
+}
+
+.another-cell {
+    margin-left: 10px;
+    color: lightseagreen;
+}
+</style>
+    </head>
+    <body>
+       <div ng-app="adaptv.adaptStrapDocs" ng-controller="treebrowserCtrl">
+    <!-- ===== template files ===== -->
+    <script type="text/ng-template" id="src/treebrowser/docs/treeHeader.html">
+        <div>
+            <span class="name-cell pull-left">Name</span>
+            <span class="another-cell pull-left">Another Cell</span>
+            <span class="pull-right margin-right-lg">Price Range</span>
+        </div>
+    </script>
+    <script type="text/ng-template" id="src/treebrowser/docs/treeNode.html">
+        <div>
+            <span class="name-cell pull-left">{{ item.name }}</span>
+            <span class="another-cell pull-left">Another Cell</span>
+            <span class="pull-right margin-right-lg">
+                <a href=""
+                   ng-click="carSelected(item)">
+                       {{ item.priceRange }}
+                </a>
+            </span>
+        </div>
+    </script>
+    
+    <!-- ===== Usage with border & header ===== -->
+    <p>With Border &amp; header</p>
+    <ad-tree-browser class="ad-border-default"
+                     tree-name="treeDemoBordered"
+                     row-ng-class="{added:item._selected}"
+                     tree-root="root"
+                     child-node="children"
+                     children-padding="15"
+                     bordered="true"
+                     node-header-url="src/treebrowser/docs/treeHeader.html"
+                     node-template-url="src/treebrowser/docs/treeNode.html">
+    </ad-tree-browser>
+    <hr>
+    <!-- ===== Usage ===== -->
+    <p>Simple tree without border</p>
+    <ad-tree-browser class="ad-border-default"
+         tree-name="treeDemo"
+         row-ng-class="{added:item._selected}"
+         tree-root="root"
+         child-node="children"
+         children-padding="15"
+         node-template-url="src/treebrowser/docs/treeNode.html">
+    </ad-tree-browser>
+</div>
+    </body>
+</html>
